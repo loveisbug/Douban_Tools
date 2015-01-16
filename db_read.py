@@ -25,11 +25,10 @@ def db_read_2014(member):
 		for item in items:
 			if int(item.find('span', 'date').text.strip()[:4]) >= 2014:
 				fo.write('<' + item.findNext('a').findNext('a')['title'].strip() + '>, ' + item.find('div', 'pub').text.strip().split('/')[0] + ', ' + item.find('span', 'date').text[:-2].strip() + '\n')
-#				print item.findNext('a').findNext('a')['title'], item.find('div', 'pub').text.strip().split('/')[0], item.find('span', 'date').text.strip()[:-2]
 			else:
 				nextpage = False
 				break
 		pagecnt += 15
 	fo.close()
 
-db_read_2014('steedhorse')
+db_read_2014('blacktulip')
